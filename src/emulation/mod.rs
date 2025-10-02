@@ -1,7 +1,8 @@
 mod device;
 #[cfg(feature = "emulation-rand")]
 mod rand;
-
+use strum::IntoEnumIterator; // 需要在 Cargo.toml 中添加 strum 依赖
+use strum_macros::EnumIter;
 use device::{chrome::*, firefox::*, okhttp::*, opera::*, safari::*};
 #[cfg(feature = "emulation-serde")]
 use serde::{Deserialize, Serialize};
@@ -14,7 +15,7 @@ macro_rules! define_emulation_enum {
     ($(#[$meta:meta])* $name:ident, $default_variant:ident, $($variant:ident => $rename:expr),*) => {
         $(#[$meta])*
         #[non_exhaustive]
-        #[derive(Clone, Copy, Hash, Debug, PartialEq, Eq)]
+        #[derive(Clone, Copy, Hash, Debug, PartialEq, Eq,EnumIter)]
         #[cfg_attr(feature = "emulation-rand", derive(VariantArray))]
         #[cfg_attr(feature = "emulation-serde", derive(Deserialize, Serialize))]
         pub enum $name {

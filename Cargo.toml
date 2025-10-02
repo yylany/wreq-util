@@ -28,7 +28,7 @@ emulation = ["dep:typed-builder"]
 emulation-serde = ["dep:serde"]
 
 # Emulation devices with random data
-emulation-rand = ["emulation", "dep:strum_macros", "dep:strum"]
+emulation-rand = ["emulation",]
 
 # Compression algorithms
 gzip = ["wreq/gzip"]
@@ -40,8 +40,8 @@ zstd = ["wreq/zstd"]
 wreq = { git = "https://github.com/yylany/wreq.git",branch = "main", default-features = false }
 serde = { version = "1.0", features = ["derive"], optional = true }
 typed-builder = { version = "0.21.0", optional = true }
-strum = { version = "0.27.1", optional = true }
-strum_macros = { version = "0.27.1", optional = true }
+strum = { version = "0.27.1" }
+strum_macros = { version = "0.27.1"}
 
 [dev-dependencies]
 tokio = { version = "1", features = ["full"] }
