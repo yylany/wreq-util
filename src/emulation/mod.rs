@@ -1,7 +1,6 @@
 mod device;
 #[cfg(feature = "emulation-rand")]
 mod rand;
-use strum::IntoEnumIterator; // 需要在 Cargo.toml 中添加 strum 依赖
 use strum_macros::EnumIter;
 use device::{chrome::*, firefox::*, okhttp::*, opera::*, safari::*};
 #[cfg(feature = "emulation-serde")]
