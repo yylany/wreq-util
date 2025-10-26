@@ -1,10 +1,10 @@
 mod device;
 #[cfg(feature = "emulation-rand")]
 mod rand;
-use strum_macros::EnumIter;
 use device::{chrome::*, firefox::*, okhttp::*, opera::*, safari::*};
 #[cfg(feature = "emulation-serde")]
 use serde::{Deserialize, Serialize};
+use strum_macros::EnumIter;
 #[cfg(feature = "emulation-rand")]
 use strum_macros::VariantArray;
 use typed_builder::TypedBuilder;
@@ -90,6 +90,10 @@ define_emulation_enum!(
     Chrome135 => "chrome_135",
     Chrome136 => "chrome_136",
     Chrome137 => "chrome_137",
+    Chrome138 => "chrome_138",
+    Chrome139 => "chrome_139",
+    Chrome140 => "chrome_140",
+    Chrome141 => "chrome_141",
 
     SafariIos17_2 => "safari_ios_17.2",
     SafariIos17_4_1 => "safari_ios_17.4.1",
@@ -302,6 +306,10 @@ impl EmulationProviderFactory for EmulationOption {
             Emulation::Chrome135 => v135::emulation,
             Emulation::Chrome136 => v136::emulation,
             Emulation::Chrome137 => v137::emulation,
+            Emulation::Chrome138 => v138::emulation,
+            Emulation::Chrome139 => v139::emulation,
+            Emulation::Chrome140 => v140::emulation,
+            Emulation::Chrome141 => v141::emulation,
 
             Emulation::SafariIos17_2 => safari_ios_17_2::emulation,
             Emulation::SafariIos17_4_1 => safari_ios_17_4_1::emulation,
